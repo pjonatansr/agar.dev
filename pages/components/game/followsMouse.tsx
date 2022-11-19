@@ -1,18 +1,21 @@
-import { Vec2 } from 'kaboom';
-import { GenericGameObject } from './types';
+const mouse = {
+  x: 0,
+  y: 0
+}
 
-export function followsMouse(mouse: number[], X: number, Y: number, player: GenericGameObject) {
+export function followsMouse() {
   const { x, y } = toWorld(mousePos());
+
   if (x > 0 && y > 0) {
-    mouse[X] = x;
-    mouse[Y] = y;
+    mouse.x = x;
+    mouse.y = y;
   }
 
-  //the player speed is inversely proportional to the player mass
-  const speed = player.speed / player.mass;
 
-  //the player moves towards the mouse
-  player.move(vec2(mouse[X] - player.pos.x, mouse[Y] - player.pos.y).scale(speed));
+  for (const player of get('player')) {
+    const speed = player.speed / player.mass;
 
+    player.move(vec2(mouse.x - player.pos.x, mouse.y - player.pos.y).scale(speed));
+  }
 
 }
