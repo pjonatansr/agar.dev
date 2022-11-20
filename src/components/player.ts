@@ -1,25 +1,26 @@
 import { GameObj } from "kaboom";
 
 const addPlayer = (mass: number, player?: GameObj) => {
+  let playerPos = player?.pos ?? center()
+
   const playerArr = [
     body(),
     "player",
     {
-      mass,
+      mass: mass / 2,
       speed: mass,
       currentMass: mass,
       dividing: false
     },
-    pos(center()),
     circle(mass),
     area({
       width: mass,
       height: mass,
     }),
     z(1),
-
+    pos(playerPos),
     // @ts-ignore
-    origin('center')
+    origin('center'),
   ];
 
   return add(playerArr);

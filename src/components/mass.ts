@@ -2,8 +2,6 @@ import { Color, ColorComp } from "kaboom";
 
 const addMass = (mass: number, x: number, y: number, tag: string, colorParent?: ColorComp) => {
 
-
-
   const m: any[] = [
     tag,
     {

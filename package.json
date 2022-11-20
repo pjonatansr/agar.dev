@@ -1,23 +1,23 @@
 {
   "name": "agar.dev",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+  "version": "1.0.0",
+  "description": "agar.io by pjonatansr",
+  "main": "index.js",
+  "author": "@pjonatansr",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "esbuild": "^0.15.14",
+    "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.3",
-    "kaboom": "^2000.2.9",
-    "next": "13.0.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.3"
+    "kaboom": "^2000.2.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild --bundle src/index.ts --outbase=src --outfile=www/main.js --minify",
+    "watch": "npm run build -- --watch",
+    "start": "npm run build -- --servedir=www"
   }
 }
