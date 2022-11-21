@@ -117,7 +117,7 @@ scene("game", () => {
         // drawText({
         //   text: p.mass,
         // })
-        p.use(circle(p.mass / 2))
+        p.use(circle(p.mass))
         p.use(area({
             width: p.mass,
             height: p.mass,

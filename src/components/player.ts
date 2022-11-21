@@ -4,18 +4,20 @@ const addPlayer = (mass: number, player?: GameObj) => {
   let playerPos = player?.pos ?? center()
 
   const playerArr = [
-    body(),
+    body({
+      weight: mass,
+    }),
     "player",
     {
-      mass: mass / 2,
+      mass: mass,
       speed: mass,
-      currentMass: mass,
-      dividing: false
+      weight: mass,
     },
     circle(mass),
     area({
       width: mass,
       height: mass,
+      shape: 'circle',
     }),
     z(1),
     pos(playerPos),
